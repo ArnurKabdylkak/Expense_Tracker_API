@@ -1,6 +1,11 @@
 module ExpenseMate
 
 go 1.22.5
+require (
+    github.com/ArnurKabdylkak/Expense_Tracker_API v1.0.0
+	github.com/ArnurKabdylkak/Expense_Tracker_API/db v1.0.0
+	github.com/ArnurKabdylkak/Expense_Tracker_API/routes v1.0.0
+)
 
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
@@ -17,4 +22,6 @@ require (
 	golang.org/x/crypto v0.22.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	
+
 )

@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"ExpenseMate/models"
 	"encoding/json"
 	"net/http"
 	"time"

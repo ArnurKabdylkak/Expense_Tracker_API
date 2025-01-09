@@ -1,6 +1,8 @@
 package main
 
 import (
+	"ExpenseMate/db"
+	"ExpenseMate/routes"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -9,19 +11,22 @@ import (
 )
 
 func main() {
+	db.ConnectDb()
 	r := mux.NewRouter()
 	r.HandleFunc("/", HomeHandler)
 	authrouter := r.PathPrefix("/api/v1/auth").Subrouter()
-	categoryroutes := r.PathPrefix("api/v1/category").Subrouter()
-	expenseroutes := r.PathPrefix("api/v1/expense").Subrouter()
+	categoryrouter := r.PathPrefix("/api/v1/category").Subrouter()
+	expenserouter := r.PathPrefix("/api/v1/expense").Subrouter()
 
+	// Initializing AuthRoutes using SubRouter
 	routes.AuthRouter(authrouter)
-	routes.CategoryRoutes(categoryroutes)
-	routes.ExpenseRoutes(expenseroutes)
+	routes.CategoryRoutes(categoryrouter)
+	routes.ExpenseRoute(expenserouter)
 
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8000", r))
 }
 
+// Testing home route
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	err := json.NewEncoder(w).Encode("Server is live")
 	if err != nil {

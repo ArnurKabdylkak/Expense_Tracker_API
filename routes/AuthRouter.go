@@ -1,6 +1,10 @@
 package routes
 
-import "github.com/gorilla/mux"
+import (
+	"ExpenseMate/controller"
+
+	"github.com/gorilla/mux"
+)
 
 func AuthRouter(r *mux.Router) {
 	r.HandleFunc("/register", controller.RegisterController).Methods("POST")

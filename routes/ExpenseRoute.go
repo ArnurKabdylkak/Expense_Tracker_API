@@ -1,6 +1,10 @@
 package routes
 
-import "github.com/gorilla/mux"
+import (
+	"ExpenseMate/controller"
+
+	"github.com/gorilla/mux"
+)
 
 func ExpenseRoute(r *mux.Router) {
 	r.HandleFunc("/create-expense", controller.CreateExpenseController).Methods("POST")

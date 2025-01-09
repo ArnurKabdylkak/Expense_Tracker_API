@@ -1,6 +1,10 @@
 package routes
 
-import "github.com/gorilla/mux"
+import (
+	"ExpenseMate/controller"
+
+	"github.com/gorilla/mux"
+)
 
 func CategoryRoutes(r *mux.Router) {
 	r.HandleFunc("/create-category", controller.CreateCategoryController).Methods("POST")
